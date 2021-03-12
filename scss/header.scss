@@ -172,6 +172,9 @@
 }
 
 .menu {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 	&__icon {
 	}
 
@@ -196,6 +199,18 @@
 		line-height: 32px;
 		color: #1b2437;
 		cursor: pointer;
+		&_a {
+			position: relative;
+			&::before {
+				content: "";
+				position: absolute;
+				left: 50%;
+				top: 100%;
+				width: 2px;
+				height: 20px;
+				background-color: #000;
+			}
+		}
 	}
 	@media (max-width: $md3+px) {
 		&__list {

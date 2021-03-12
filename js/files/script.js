@@ -1,4 +1,5 @@
 
+//===================Выпадающий список======================
 let menuBody = document.querySelector('.menu__list');
 let spollerList = document.querySelector('.spoller__list');
 let spollerTitle = document.querySelector('.spoller__title');
@@ -32,6 +33,6 @@ document.querySelector('body').addEventListener('click', e => {
         }, 101);
     }
 })
-
+//===================//Выпадающий список======================
 
 
