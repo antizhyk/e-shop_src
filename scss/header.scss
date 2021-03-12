@@ -155,13 +155,13 @@
 		}
 	}
 
-	&__social-list_one {
+	&__list_one {
 		@media (max-width: 600px) {
 			display: none;
 		}
 	}
 
-	&__social-list_one {
+	&__list_two {
 		@media (min-width: 600px) {
 			display: none;
 		}
@@ -274,7 +274,8 @@
 			width: 300px;
 			z-index: 10;
 			left: 0;
-			border: 1px solid #1b2437;
+			border: 1px solid #4e4e4e;
+			border-radius: 5px;
 			@media (max-width: 600px) {
 				border: none;
 				position: fixed;
@@ -296,7 +297,7 @@
 				}
 			}
 			&.active {
-				height: 324px;
+				height: 150px;
 				@media (max-width: 600px) {
 					top: 0;
 					left: 25%;
