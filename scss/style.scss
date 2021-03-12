@@ -159,7 +159,7 @@ body {
 	&__wrap {
 		display: grid;
 		grid-template-columns: 1fr 0.5fr 0.5fr;
-		grid-template-rows: 208px 208px;
+		grid-template-rows: repeat(2, 1fr);
 		grid-template-areas:
 			"big smallOne smallTwo"
 			"big middle middle";
@@ -175,6 +175,7 @@ body {
 	}
 	&__big {
 		grid-area: big;
+		height: 32.22vw;
 	}
 
 	&__content {
@@ -203,6 +204,7 @@ body {
 		font-size: 20px;
 		line-height: 25px;
 		color: #ffffff;
+		margin-bottom: 24px;
 	}
 
 	&__btn {
