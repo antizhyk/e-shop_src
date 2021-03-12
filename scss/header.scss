@@ -2,7 +2,7 @@
 .header {
 	&__content {
 		max-width: 1283px;
-		padding: 0 10px;
+		padding: 0 10px 32px;
 		margin: 0 auto;
 	}
 
@@ -205,7 +205,7 @@
 				content: "";
 				position: absolute;
 				left: 50%;
-				top: 100%;
+				top: 125%;
 				width: 2px;
 				height: 20px;
 				background-color: #000;
