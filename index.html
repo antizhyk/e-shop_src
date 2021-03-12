@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="ru">
-	@@include('_head.html',{
-	"title":"Главная"
-	})
-	<body>
-		<div class="wrapper">
-			@@include('_header.html',{})
-			<main class="page">
+@@include('_head.html',{
+"title":"Главная"
+})
 
-			</main>
-			@@include('_footer.html',{})
-		</div>
-		@@include('_popup.html',{})
-		@@include('_js.html',{})
-	</body>
+<body>
+	<div class="wrapper">
+		@@include('_header.html',{})
+		<main class="page">
+			<div class="bigboard">
+				<div class="bigboard__contain">
+					<div class="bigboard__content">
+						<div class="bigboard__title">
+							Admire Stylish
+							Dresses & Looks
+						</div>
+						<div class="bigboard__text">
+							If we wanted to build a human-level tool to offer
+							automated outfit advice, we needed to understand
+							people’s fashion taste.
+						</div>
+						<a href="" class="bigboard__btn btn">Show More</a>
+					</div>
+					<div class="bigboard__main-screen _ibg">
+						<img src="./img/bigboard/bigboard.png">
+					</div>
+				</div>
+			</div>
+		</main>
+		@@include('_footer.html',{})
+	</div>
+	@@include('_popup.html',{})
+	@@include('_js.html',{})
+</body>
+
 </html>
