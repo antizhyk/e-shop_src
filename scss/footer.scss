@@ -1,5 +1,50 @@
-footer{}
 //====================================================================================================
+.footer {
+    &__content {
+    }
+
+    &__top {
+        padding: 24px 0;
+        @media (max-width: $md2+px) {
+            display: none;
+        }
+    }
+
+    &__middle {
+    }
+
+    &__bottom {
+    }
+}
+
+.bottom {
+    padding: 26px 0;
+    background: #efeff4;
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__license {
+        line-height: 20px;
+        color: #8e8e93;
+    }
+
+    &__social {
+        position: static;
+        transform: translate(0, 0);
+    }
+}
+.social {
+    &__list {
+    }
+
+    &__item {
+    }
+
+    &__svg {
+    }
+}
 
 //====================================================================================================
-
