@@ -160,11 +160,12 @@ body {
 		grid-template-rows: 1fr 1fr;
 		grid-template-areas:
 			"big smallOne smallTwo"
-			"big middle";
+			"big middle middle";
 	}
-
+	&__block {
+	}
 	&__big {
-		grid-area: "big";
+		grid-area: big;
 	}
 
 	&__content {
@@ -186,10 +187,10 @@ body {
 
 	&__small {
 		&:first-child {
-			grid-area: "smallOne";
+			grid-area: smallOne;
 		}
 		&:last-child {
-			grid-area: "smallTwo";
+			grid-area: smallTwo;
 		}
 	}
 
@@ -197,6 +198,7 @@ body {
 	}
 
 	&__middle {
+		grid-area: middle;
 	}
 }
 
