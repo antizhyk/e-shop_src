@@ -118,6 +118,9 @@
 
 	&__bottom {
 		padding: 45px 0 30px;
+		@media (max-width: 599px) {
+			padding: 0;
+		}
 	}
 
 	&__menu {
