@@ -169,6 +169,11 @@
 			display: none;
 		}
 	}
+	&__wrap_two {
+		@media (min-width: 600px) {
+			display: none;
+		}
+	}
 }
 
 .menu {
