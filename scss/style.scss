@@ -158,12 +158,24 @@ body {
 
 	&__wrap {
 		display: grid;
-		grid-template-columns: 42vw 0.5fr 0.5fr;
+		grid-template-columns: 42vw 20.2vw 20.2vw;
 		grid-template-rows: repeat(2, 1fr);
 		grid-template-areas:
 			"big smallOne smallTwo"
 			"big middle middle";
-		grid-gap: 24px;
+		@include adaptiv-value("grid-gap", 24, 7.5, 0);
+		justify-content: center;
+		@media (max-width: $md2+px) {
+			grid-template-rows: 1fr 0.7fr 0.7fr;
+			grid-template-columns: 42vw 42vw;
+			grid-template-areas:
+				"big big"
+				"smallOne smallTwo"
+				"middle middle";
+		}
+		@media (max-width: 50px) {
+			grid-template-rows: 1fr 0.5fr 0.5fr;
+		}
 	}
 	&__block {
 		position: relative;
@@ -179,16 +191,25 @@ body {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			align-items: start;
+			align-items: flex-start;
 		}
 	}
 	&__big {
 		grid-area: big;
 		height: 33.22vw;
+		@media (max-width: $md3+px) {
+			height: 40vw;
+		}
+		@media (max-width: 500px) {
+			height: 200px;
+		}
 	}
 
 	&__content {
 		padding: 32px;
+		@media (max-width: $md3+px) {
+			padding: 15px;
+		}
 		position: absolute;
 		z-index: 2;
 		top: 0;
@@ -200,7 +221,8 @@ body {
 	&__title {
 		font-family: Playfair;
 		font-size: 34px;
-		line-height: 51px;
+		@include adaptiv-value("font-size", 34, 18, 0);
+		@include adaptiv-value("line-height", 51, 23, 0);
 		letter-spacing: 0.4px;
 		color: #ffffff;
 		&_b {
@@ -214,6 +236,10 @@ body {
 		line-height: 25px;
 		color: #ffffff;
 		margin: 11px 0 24px;
+		@media (max-width: $md4+px) {
+			align-self: flex-end;
+			margin: 5px 0 10px;
+		}
 	}
 
 	&__btn {
