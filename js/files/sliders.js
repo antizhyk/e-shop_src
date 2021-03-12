@@ -61,7 +61,7 @@ if (sliderScrollItems.length > 0) {
 
 function sliders_bild_callback(params) { }
 
-let slider_about = new Swiper('.about__slider', {
+let slider_about = new Swiper('.slider', {
 	/*
 	effect: 'fade',
 	autoplay: {
