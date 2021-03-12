@@ -202,7 +202,7 @@
 		color: #1b2437;
 		cursor: pointer;
 		&_a {
-			@media (min-width: 600px) {
+			@media (min-width: 599px) {
 				position: relative;
 				&::before {
 					content: "";
