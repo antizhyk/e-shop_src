@@ -136,6 +136,9 @@
     &__link {
         line-height: 20px;
         color: #8e8e93;
+        &:hover {
+            color: #000;
+        }
     }
 }
 
