@@ -196,11 +196,26 @@
 	}
 
 	&__link {
-		font-family: Playfair;
+		font-family: "Playfair";
 		font-size: 26px;
 		line-height: 32px;
 		color: #1b2437;
 		cursor: pointer;
+		&_a {
+			@media (min-width: 600px) {
+				position: relative;
+				&::before {
+					content: "";
+					position: absolute;
+					left: 50%;
+					top: 125%;
+					width: 2px;
+					height: 20px;
+					background: #000;
+					transform: translateX(-50%);
+				}
+			}
+		}
 	}
 	@media (max-width: $md3+px) {
 		&__list {
