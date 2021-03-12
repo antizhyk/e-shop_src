@@ -149,3 +149,55 @@ body {
 	}
 }
 //</BIGBOARD>====================================================================================================
+//<BLOG>====================================================================================================
+.blog {
+	&__contain {
+	}
+
+	&__wrap {
+		display: grid;
+		grid-template-columns: 1fr 0.5fr 0.5fr;
+		grid-template-rows: 1fr 1fr;
+		grid-template-areas:
+			"big smallOne smallTwo"
+			"big middle";
+	}
+
+	&__big {
+		grid-area: "big";
+	}
+
+	&__content {
+	}
+
+	&__title {
+		&_b {
+		}
+	}
+
+	&__date {
+	}
+
+	&__btn {
+	}
+
+	&__img {
+	}
+
+	&__small {
+		&:first-child {
+			grid-area: "smallOne";
+		}
+		&:last-child {
+			grid-area: "smallTwo";
+		}
+	}
+
+	&__subtitle {
+	}
+
+	&__middle {
+	}
+}
+
+//</BLOG>====================================================================================================
