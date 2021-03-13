@@ -188,6 +188,7 @@ body {
 		border-radius: 16px;
 		overflow: hidden;
 		transition: all 0.3s ease 0s;
+		color: #1b2437;
 		&:hover {
 			box-shadow: 0 0 10px rgb(88, 88, 88);
 		}
@@ -300,33 +301,33 @@ body {
 	&__contain {
 		background-color: #fff;
 		border-radius: 16px;
+		padding: 52px 0 73px;
 	}
 
 	&__wrap {
 		position: relative;
-		max-width: 78.25%;
-		margin: 0 auto;
 	}
 	&__arrow {
 		position: absolute;
 		top: 50%;
-		transform: translate(0, 50%);
+		transform: translate(0, -50%);
 
 		&_p {
-			left: 0;
+			left: 3.51%;
 		}
 
 		&_n {
-			transform: translate(2px, 59%) rotate(180deg);
-			right: 0;
+			transform: translate(2px, -60%) rotate(180deg);
+			right: 3.51%;
 		}
 	}
 
 	&__slider {
+		max-width: 78.25%;
+		margin: 0 auto;
 	}
 }
 .slider {
-	padding: 52px 0 73px;
 	&__block {
 		display: flex;
 		justify-content: space-between;
