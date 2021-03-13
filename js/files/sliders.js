@@ -72,12 +72,13 @@ let slider_about = new Swiper('.slider', {
 	observer: true,
 	observeParents: true,
 	slidesPerView: 1,
+	slidesPerGroup: 4,
 	spaceBetween: 0,
 	autoHeight: true,
 	speed: 800,
 	//touchRatio: 0,
 	//simulateTouch: false,
-	//loop: true,
+	loop: true,
 	//preloadImages: false,
 	//lazy: true,
 	// Dotts
@@ -87,10 +88,10 @@ let slider_about = new Swiper('.slider', {
 	//},
 	// Arrows
 	navigation: {
-		nextEl: '.about__more .more__item_next',
-		prevEl: '.about__more .more__item_prev',
+		nextEl: '.products__arrow_n',
+		prevEl: '.products__arrow_p',
 	},
-	/*
+
 	breakpoints: {
 		320: {
 			slidesPerView: 1,
@@ -110,7 +111,7 @@ let slider_about = new Swiper('.slider', {
 			spaceBetween: 30,
 		},
 	},
-	*/
+
 	on: {
 		lazyImageReady: function () {
 			ibg();
