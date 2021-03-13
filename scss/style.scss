@@ -325,7 +325,7 @@ body {
 	&__dots {
 		position: absolute;
 		right: 0;
-		bottom: -24px;
+		bottom: -46px;
 		left: 0;
 		z-index: 15;
 		display: flex;
@@ -359,7 +359,7 @@ body {
 }
 
 .slider {
-	max-width: 78.25%;
+	max-width: 79.25%;
 	margin: 0 auto;
 	overflow: hidden;
 	&__wrap {
@@ -369,6 +369,9 @@ body {
 	&__block {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
+		@media (max-width: $md2+px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 	&__item {
 		display: flex;
