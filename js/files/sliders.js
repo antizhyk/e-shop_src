@@ -34,6 +34,8 @@ if (sliders) {
 
 function sliders_bild_callback(params) { }
 
+
+
 let sliderScrollItems = document.querySelectorAll('._swiper_scroll');
 if (sliderScrollItems.length > 0) {
 	for (let index = 0; index < sliderScrollItems.length; index++) {
@@ -78,14 +80,16 @@ let slider_about = new Swiper('.slider', {
 	speed: 800,
 	//touchRatio: 0,
 	//simulateTouch: false,
-	loop: true,
+	//loop: true,
 	//preloadImages: false,
-	//lazy: true,
+	//lazy: true,dynamicMainBullets
 	// Dotts
 	pagination: {
 		el: '.slider-quality__pagging',
 		clickable: true,
 		type: 'bullets',
+		dynamicBullets: true,
+		//dynamicMainBullets: 3,
 	},
 	// Arrows
 	navigation: {
