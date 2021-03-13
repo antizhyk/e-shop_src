@@ -82,10 +82,11 @@ let slider_about = new Swiper('.slider', {
 	//preloadImages: false,
 	//lazy: true,
 	// Dotts
-	//pagination: {
-	//	el: '.slider-quality__pagging',
-	//	clickable: true,
-	//},
+	pagination: {
+		el: '.slider-quality__pagging',
+		clickable: true,
+		type: 'bullets',
+	},
 	// Arrows
 	navigation: {
 		nextEl: '.products__arrow_n',
