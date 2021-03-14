@@ -41,11 +41,32 @@ const subslides = document.querySelectorAll('.slider__item'),
     slidesField = document.querySelector('.slider__wrap'),
     indicators = document.querySelector('.products__dots'),
     dots = [],
-    width = window.getComputedStyle(slider).width;
+    width = window.getComputedStyle(slider).width,
+    numWith = Math.round(+width.slice(0, width.length - 2));
 
 let arrItems = [];
 let slideIndex = 1;
 let indent = 0;
+
+function addClassNeighbour(arrDots) {
+    arrDots.forEach((dot, index) => {
+        if (index == slideIndex - 1) {
+            dot.classList.add('products__dot_active');
+        } else {
+            dot.classList.remove('products__dot_active');
+        }
+        if (index == slideIndex - 2 || index == slideIndex) {
+            dot.classList.add('products__dot_neighbour');
+        } else {
+            dot.classList.remove('products__dot_neighbour');
+        }
+        if (index == slideIndex - 3 || index == slideIndex + 1) {
+            dot.classList.add('products__dot_predecessor');
+        } else {
+            dot.classList.remove('products__dot_predecessor');
+        }
+    });
+}
 function addWrapBlok(list, nameClass, quantity) {
     list.forEach((el, index, arr) => {
         if (arrItems.length < quantity) {
@@ -70,6 +91,7 @@ function addWrapBlok(list, nameClass, quantity) {
         }
     })
 }
+
 if (document.documentElement.clientWidth > 991.98) {
     addWrapBlok(subslides, 'slider__block', 4);
 } else if (document.documentElement.clientWidth < 991.98 && document.documentElement.clientWidth > 767.98) {
@@ -109,58 +131,26 @@ for (let i = 0; i < slides.length; i++) {
     dots.push(dot);
 }
 next.addEventListener('click', () => {
-    if (indent === Math.round(+width.slice(0, width.length - 2)) * (slides.length - 1)) {
+    if (indent === numWith * (slides.length - 1)) {
         indent = 0;
         slideIndex = 1;
     } else {
-        indent += Math.round(+width.slice(0, width.length - 2));
+        indent += numWith;
         slideIndex += 1;
     }
     slidesField.style.transform = `translate(-${indent}px)`;
-    dots.forEach((dot, index) => {
-        if (index == slideIndex - 1) {
-            dot.classList.add('products__dot_active');
-        } else {
-            dot.classList.remove('products__dot_active');
-        }
-        if (index == slideIndex - 2 || index == slideIndex) {
-            dot.classList.add('products__dot_neighbour');
-        } else {
-            dot.classList.remove('products__dot_neighbour');
-        }
-        if (index == slideIndex - 3 || index == slideIndex + 1) {
-            dot.classList.add('products__dot_predecessor');
-        } else {
-            dot.classList.remove('products__dot_predecessor');
-        }
-    });
+    addClassNeighbour(dots);
 });
 prev.addEventListener('click', () => {
     if (indent === 0) {
-        indent = Math.round(+width.slice(0, width.length - 2)) * (slides.length - 1);
+        indent = numWith * (slides.length - 1);
         slideIndex = slides.length;
     } else {
-        indent -= Math.round(+width.slice(0, width.length - 2));
+        indent -= numWith;
         slideIndex -= 1;
     }
     slidesField.style.transform = `translate(-${indent}px)`;
-    dots.forEach((dot, index) => {
-        if (index == slideIndex - 1) {
-            dot.classList.add('products__dot_active');
-        } else {
-            dot.classList.remove('products__dot_active');
-        }
-        if (index == slideIndex - 2 || index == slideIndex) {
-            dot.classList.add('products__dot_neighbour');
-        } else {
-            dot.classList.remove('products__dot_neighbour');
-        }
-        if (index == slideIndex - 3 || index == slideIndex + 1) {
-            dot.classList.add('products__dot_predecessor');
-        } else {
-            dot.classList.remove('products__dot_predecessor');
-        }
-    });
+    addClassNeighbour(dots);
 });
 
 dots.forEach(dot => {
@@ -169,26 +159,10 @@ dots.forEach(dot => {
         slideIndex = slideTo;
         indent = (Math.round(+width.slice(0, width.length - 2))) * (slideTo - 1);
         slidesField.style.transform = `translate(-${indent}px)`;
-
-        dots.forEach((dot, index) => {
-            if (index == slideIndex - 1) {
-                dot.classList.add('products__dot_active');
-            } else {
-                dot.classList.remove('products__dot_active');
-            }
-            if (index == slideIndex - 2 || index == slideIndex) {
-                dot.classList.add('products__dot_neighbour');
-            } else {
-                dot.classList.remove('products__dot_neighbour');
-            }
-            if (index == slideIndex - 3 || index == slideIndex + 1) {
-                dot.classList.add('products__dot_predecessor');
-            } else {
-                dot.classList.remove('products__dot_predecessor');
-            }
-        });
+        addClassNeighbour(dots);
     })
 })
+
 //=========================/SLIDER======================
 
 
