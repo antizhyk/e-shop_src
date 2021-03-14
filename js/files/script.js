@@ -34,7 +34,7 @@ document.querySelector('body').addEventListener('click', e => {
 })
 //========================/SPOILER=====================
 //=========================SLIDER======================
-const slides = document.querySelectorAll('.slider__block'),
+const subslides = document.querySelectorAll('.slider__item'),
     prev = document.querySelector('.products__arrow_p'),
     next = document.querySelector('.products__arrow_n'),
     slider = document.querySelector('.slider'),
@@ -43,13 +43,57 @@ const slides = document.querySelectorAll('.slider__block'),
     dots = [],
     width = window.getComputedStyle(slider).width;
 
+let arrItems = [];
 let slideIndex = 1;
 let indent = 0;
+function addWrapBlok(list, nameClass, quantity) {
+    list.forEach((el, index, arr) => {
+        if (arrItems.length < quantity) {
+            arrItems.push(el);
+        } else if (arrItems.length === quantity) {
+            let blockWrap = document.createElement('div');
+            blockWrap.classList.add(nameClass);
+            arrItems.forEach(el => {
+                blockWrap.append(el);
+            })
+            slidesField.append(blockWrap);
+            arrItems = [];
+        }
+        if (index == (arr.length - 1) && arrItems.length > 0) {
+            let blockWrap = document.createElement('div');
+            blockWrap.classList.add(nameClass);
+            arrItems.forEach(el => {
+                blockWrap.append(el);
+            })
+            slidesField.append(blockWrap);
+            arrItems = [];
+        }
+    })
+}
+if (document.documentElement.clientWidth > 991.98) {
+    addWrapBlok(subslides, 'slider__block', 4);
+} else if (document.documentElement.clientWidth < 991.98 && document.documentElement.clientWidth > 767.98) {
+    addWrapBlok(subslides, 'slider__block', 3);
+} else if (document.documentElement.clientWidth < 767.98 && document.documentElement.clientWidth > 479.98) {
+    addWrapBlok(subslides, 'slider__block', 2);
+} else if (document.documentElement.clientWidth < 479.98) {
+    addWrapBlok(subslides, 'slider__block', 1);
+}
+
+
+subslides.forEach(el => {
+    if (!el.parentElement.classList.contains('slider__block')) {
+        el.style.display = "none";
+    }
+})
+
+const slides = document.querySelectorAll('.slider__block')
 
 slidesField.style.width = 100 * slides.length + '%';
 slides.forEach(slide => {
     slide.style.width = width;
 })
+
 for (let i = 0; i < slides.length; i++) {
     const dot = document.createElement('span');
     dot.classList.add('products__dot');
