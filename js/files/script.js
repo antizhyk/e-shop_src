@@ -48,10 +48,11 @@ function slider() {
         md1 = window.matchMedia('(min-width: 991px)'),
         md2 = window.matchMedia('(max-width: 991px)'),
         md3 = window.matchMedia('(min-width: 479px)'),
-        md4 = window.matchMedia('(max-width: 479px)'),
+        md4 = window.matchMedia('(max-width: 479px)');
 //---------------------------/Медиа запросы--------------------------------------
-        width = window.getComputedStyle(slider).width,
-        numWith = Math.round(+width.slice(0, width.length - 2));
+        
+    let width = window.getComputedStyle(slider).width;
+    let numWith = Math.round(+width.slice(0, width.length - 2));
     let slidesField = document.querySelector('.slider__wrap');
     let arrItems = [];
     let slideIndex = 1;
@@ -139,10 +140,11 @@ function slider() {
                 }
             }
         }) */
-            
+            width = getComputedStyle(slider).width;
+            numWith = Math.round(+width.slice(0, width.length - 2));
             indent = 0;
             slidesField.style.transform = `translate(-${indent}px)`;
-            return slides;
+            return {slides, width, numWith};
         }
     }
 
@@ -172,11 +174,12 @@ function slider() {
                 slide.style.width = getComputedStyle(slider).width;
             })
             slidesField.style.width = 100 * slides.length + '%'; //Ширина обертки слайдера
-            
+            width = getComputedStyle(slider).width;
+            numWith = Math.round(+width.slice(0, width.length - 2));
             indent = 0;
             console.log(indent);
             slidesField.style.transform = `translate(-${indent}px)`;
-            return slides;
+            return {slides, width, numWith};
         }
     }
     if (window.matchMedia("(min-width: 991px)").matches) {
@@ -198,9 +201,11 @@ function slider() {
         if(document.documentElement.clientWidth > 991){
             md1.addListener(breakPoint);
             breakPoint(md1);
+            console.log(width);
         } else if (document.documentElement.clientWidth > 767 && document.documentElement.clientWidth < 991){
             md2.addListener(breakPointTwo);
             breakPointTwo(md2);
+            console.log(width);
         }
     });
     
