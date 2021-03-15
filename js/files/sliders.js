@@ -34,6 +34,8 @@ if (sliders) {
 
 function sliders_bild_callback(params) { }
 
+
+
 let sliderScrollItems = document.querySelectorAll('._swiper_scroll');
 if (sliderScrollItems.length > 0) {
 	for (let index = 0; index < sliderScrollItems.length; index++) {
@@ -61,7 +63,7 @@ if (sliderScrollItems.length > 0) {
 
 function sliders_bild_callback(params) { }
 
-let slider_about = new Swiper('.about__slider', {
+let slider_about = new Swiper('.slider', {
 	/*
 	effect: 'fade',
 	autoplay: {
@@ -72,6 +74,7 @@ let slider_about = new Swiper('.about__slider', {
 	observer: true,
 	observeParents: true,
 	slidesPerView: 1,
+	slidesPerGroup: 4,
 	spaceBetween: 0,
 	autoHeight: true,
 	speed: 800,
@@ -79,18 +82,21 @@ let slider_about = new Swiper('.about__slider', {
 	//simulateTouch: false,
 	//loop: true,
 	//preloadImages: false,
-	//lazy: true,
+	//lazy: true,dynamicMainBullets
 	// Dotts
-	//pagination: {
-	//	el: '.slider-quality__pagging',
-	//	clickable: true,
-	//},
+	pagination: {
+		el: '.slider-quality__pagging',
+		clickable: true,
+		type: 'bullets',
+		dynamicBullets: true,
+		//dynamicMainBullets: 3,
+	},
 	// Arrows
 	navigation: {
-		nextEl: '.about__more .more__item_next',
-		prevEl: '.about__more .more__item_prev',
+		nextEl: '.products__arrow_n',
+		prevEl: '.products__arrow_p',
 	},
-	/*
+
 	breakpoints: {
 		320: {
 			slidesPerView: 1,
@@ -110,7 +116,7 @@ let slider_about = new Swiper('.about__slider', {
 			spaceBetween: 30,
 		},
 	},
-	*/
+
 	on: {
 		lazyImageReady: function () {
 			ibg();

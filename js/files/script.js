@@ -1,4 +1,4 @@
-
+//========================SPOILER=====================
 let menuBody = document.querySelector('.menu__list');
 let spollerList = document.querySelector('.spoller__list');
 let spollerTitle = document.querySelector('.spoller__title');
@@ -33,5 +33,65 @@ document.querySelector('body').addEventListener('click', e => {
     }
 })
 
+//========================/SPOILER=====================
+//========================SLIDER=====================
+$(document).ready(function () {
+    var sliderProducts = $('.products__slider');
+
+    sliderProducts.owlCarousel({
+        items: 4,
+        slideBy: 4,
+        loop: true,
+        mouseDrag: true,
+        touchDrag: true,
+        dots: true,
+        nav: true,
+        navText: ["", ""],
+        responsive: {
+            0: {
+                items: 1,
+                dots: false,
+            },
+            500: {
+                items: 2,
+                dots: false,
+            },
+            767: {
+                items: 3,
+                dots: false,
+            },
+            992: {
+                items: 4
+            }
+        }
+    });
+
+    var dotActive = $('.owl-dots').children('.active');
+    var dots = $('.owl-dots').children()
+
+    dots.each(function (index, value) {
+        console.log($(this).attr('class'));
+        if ($(this).attr('class') === 'owl-dot active') {
+            console.log($(this).next());
+            $(this).next().addClass('dot-next').next().addClass('dot-next-next');
+        }
+    });
+
+    sliderProducts.on('translate.owl.carousel', function (e) {
+        dots.removeClass('dot-next').removeClass('dot-next-next')
+        dots.removeClass('dot-prev').removeClass('dot-prev-prev')
+        console.log(dotActive);
+        dots.each(function (index, value) {
+            console.log($(this).attr('class'));
+            if ($(this).attr('class') === 'owl-dot active') {
+                console.log($(this).next());
+                $(this).next().addClass('dot-next').next().addClass('dot-next-next');
+                $(this).prev().addClass('dot-prev').prev().addClass('dot-prev-prev');
+            }
+        });
+
+    })
+});
+//========================/SLIDER=====================
 
 
