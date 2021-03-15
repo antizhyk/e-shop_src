@@ -47,8 +47,8 @@ function slider() {
 //---------------------------Медиа запросы--------------------------------------
         md1 = window.matchMedia('(min-width: 991px)'),
         md2 = window.matchMedia('(max-width: 991px)'),
-        md3 = window.matchMedia('(min-width: 479px)'),
-        md4 = window.matchMedia('(max-width: 479px)');
+        md3 = window.matchMedia('(min-width: 500px)'),
+        md4 = window.matchMedia('(max-width: 500px)');
 //---------------------------/Медиа запросы--------------------------------------
         
     let width = window.getComputedStyle(slider).width;
@@ -182,13 +182,80 @@ function slider() {
             return {slides, width, numWith};
         }
     }
+    function breakPointThree(e) {
+        if (e.matches) {
+            document.querySelectorAll('.slider__block').forEach(el => {
+                var fragment = document.createDocumentFragment();
+                while (el.firstChild) {
+                    fragment.appendChild(el.firstChild);
+                }
+                el.parentNode.replaceChild(fragment, el);
+            })
+            addWrapBlok(subslides, 'slider__block', 2);
+            let slides = document.querySelectorAll('.slider__block')
+
+            /* console.log(slidesField.childNodes); */
+            slidesField.childNodes.forEach(el => {
+                if (typeof el !== null && el.nodeName == 'DIV') {
+                    /* console.log(el); */
+                    if (el.classList.contains('slider__item')) {
+                        el.remove();
+                    }
+                }
+            })
+            slides.forEach(slide => {
+                slide.style.width = getComputedStyle(slider).width;
+            })
+            slidesField.style.width = 100 * slides.length + '%'; //Ширина обертки слайдера
+            width = getComputedStyle(slider).width;
+            numWith = Math.round(+width.slice(0, width.length - 2));
+            indent = 0;
+            console.log(indent);
+            slidesField.style.transform = `translate(-${indent}px)`;
+            return { slides, width, numWith };
+        }
+    }
+    function breakPointFour(e) {
+        if (e.matches) {
+            document.querySelectorAll('.slider__block').forEach(el => {
+                var fragment = document.createDocumentFragment();
+                while (el.firstChild) {
+                    fragment.appendChild(el.firstChild);
+                }
+                el.parentNode.replaceChild(fragment, el);
+            })
+            addWrapBlok(subslides, 'slider__block', 1);
+            let slides = document.querySelectorAll('.slider__block')
+
+            /* console.log(slidesField.childNodes); */
+            slidesField.childNodes.forEach(el => {
+                if (typeof el !== null && el.nodeName == 'DIV') {
+                    /* console.log(el); */
+                    if (el.classList.contains('slider__item')) {
+                        el.remove();
+                    }
+                }
+            })
+            slides.forEach(slide => {
+                slide.style.width = getComputedStyle(slider).width;
+            })
+            slidesField.style.width = 100 * slides.length + '%'; //Ширина обертки слайдера
+            width = getComputedStyle(slider).width;
+            numWith = Math.round(+width.slice(0, width.length - 2));
+            indent = 0;
+            console.log(indent);
+            slidesField.style.transform = `translate(-${indent}px)`;
+            return { slides, width, numWith };
+        }
+    }
     if (window.matchMedia("(min-width: 991px)").matches) {
         addWrapBlok(subslides, 'slider__block', 4);
     } else if (window.matchMedia("(min-width: 767px)").matches) {
+        indicators.remove();
         addWrapBlok(subslides, 'slider__block', 3);
-    } else if (window.matchMedia("(min-width: 479px)").matches) {
+    } else if (window.matchMedia("(min-width: 500px)").matches) {
         addWrapBlok(subslides, 'slider__block', 2);
-    } else if (window.matchMedia("(max-width: 479px)").matches) {
+    } else if (window.matchMedia("(max-width: 500px)").matches) {
         addWrapBlok(subslides, 'slider__block', 1);
     }
     let slides = document.querySelectorAll('.slider__block')
@@ -198,7 +265,7 @@ function slider() {
     slidesField.style.width = 100 * slides.length + '%';
     window.addEventListener('resize', ()=>{
         
-        if(document.documentElement.clientWidth > 991){
+        if(document.documentElement.clientWidth >= 991){
             md1.addListener(breakPoint);
             breakPoint(md1);
             console.log(width);
@@ -206,6 +273,14 @@ function slider() {
             md2.addListener(breakPointTwo);
             breakPointTwo(md2);
             console.log(width);
+        } else if (document.documentElement.clientWidth > 500 && document.documentElement.clientWidth <= 767) {
+            md3.addListener(breakPointThree);
+            breakPointThree(md3);
+            console.log(width);
+        } else if (document.documentElement.clientWidth <= 500) {
+            md4.addListener(breakPointFour);
+            breakPointFour(md4);
+            console.log(width); 
         }
     });
     
