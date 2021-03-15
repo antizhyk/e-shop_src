@@ -116,34 +116,39 @@ function slider() {
                 }
                 el.parentNode.replaceChild(fragment, el);
             })
-            console.log('md1');
             addWrapBlok(subslides, 'slider__block', 4);
             let slides = document.querySelectorAll('.slider__block')
-            slides.forEach(slide => {
-                slide.style.width = width;
-            })
-            slidesField.style.width = 100 * slides.length + '%'; //Ширина обертки слайдера
-            slides.forEach(slide => {
-                slide.style.width = width;
-            })
-           /*  console.log(slidesField.childNodes);
+            
+             /* console.log(slidesField.childNodes); */
             slidesField.childNodes.forEach(el => {
-                if (el.nodeName == 'DIV') {
-                    console.log(el);
+                if (typeof el !== null && el.nodeName == 'DIV') {
+                    /* console.log(el); */
                     if (el.classList.contains('slider__item')) {
                         el.remove();
                     }
                 }
-            }) */
+            })  
+            slidesField.style.width = 100 * slides.length + '%'; //Ширина обертки слайдера
+            slides.forEach(slide => {
+                slide.style.width = getComputedStyle(slider).width;
+            })
+            /* if (typeof el !== null && el.nodeName == 'DIV') {
+                console.log(el, el.classList);
+                if (el.classList.contains('slider__item')) {
+                    el.remove();
+                }
+            }
+        }) */
+            
+            indent = 0;
+            slidesField.style.transform = `translate(-${indent}px)`;
             return slides;
         }
     }
 
 
     function breakPointTwo(e) {
-        console.log(e.matches);
-        if (e.matches) {
-            
+        if (e.matches) {          
             document.querySelectorAll('.slider__block').forEach(el => {
                 var fragment = document.createDocumentFragment();
                 while (el.firstChild) {
@@ -151,34 +156,58 @@ function slider() {
                 }
                 el.parentNode.replaceChild(fragment, el);
             })
-            console.log('md2');
             addWrapBlok(subslides, 'slider__block', 3);
             let slides = document.querySelectorAll('.slider__block')
-            slides.forEach(slide => {
-                slide.style.width = width;
-            })
-            slidesField.style.width = 100 * slides.length + '%'; //Ширина обертки слайдера
-            //-------------------Ширина слайда------------------
-            slides.forEach(slide => {
-                slide.style.width = width;
-            })
-            //-------------------/Ширина слайда------------------
-            /* console.log(slidesField.childNodes);
+            
+            /* console.log(slidesField.childNodes); */
             slidesField.childNodes.forEach(el => {
-                if (el.nodeName == 'DIV') {
-                    console.log(el);
+                if (typeof el !== null && el.nodeName == 'DIV') {
+                    /* console.log(el); */
                     if (el.classList.contains('slider__item')) {
                         el.remove();
                     }
                 }
-            }) */
+            }) 
+            slides.forEach(slide => {
+                slide.style.width = getComputedStyle(slider).width;
+            })
+            slidesField.style.width = 100 * slides.length + '%'; //Ширина обертки слайдера
+            
+            indent = 0;
+            console.log(indent);
+            slidesField.style.transform = `translate(-${indent}px)`;
             return slides;
         }
     }
-    md2.addListener(breakPointTwo);
-    md1.addListener(breakPoint);
-    breakPointTwo(md2);
-    breakPoint(md1);
+    if (window.matchMedia("(min-width: 991px)").matches) {
+        addWrapBlok(subslides, 'slider__block', 4);
+    } else if (window.matchMedia("(min-width: 767px)").matches) {
+        addWrapBlok(subslides, 'slider__block', 3);
+    } else if (window.matchMedia("(min-width: 479px)").matches) {
+        addWrapBlok(subslides, 'slider__block', 2);
+    } else if (window.matchMedia("(max-width: 479px)").matches) {
+        addWrapBlok(subslides, 'slider__block', 1);
+    }
+    let slides = document.querySelectorAll('.slider__block')
+    slides.forEach(slide => {
+        slide.style.width = width;
+    })
+    slidesField.style.width = 100 * slides.length + '%';
+    window.addEventListener('resize', ()=>{
+        
+        if(document.documentElement.clientWidth > 991){
+            md1.addListener(breakPoint);
+            breakPoint(md1);
+        } else if (document.documentElement.clientWidth > 767 && document.documentElement.clientWidth < 991){
+            md2.addListener(breakPointTwo);
+            breakPointTwo(md2);
+        }
+    });
+    
+    
+    
+    
+    
     //================EXPEREMENT=============================
     
 
@@ -188,7 +217,7 @@ function slider() {
         }
     })
 
-    let slides = document.querySelectorAll('.slider__block')
+     slides = document.querySelectorAll('.slider__block')
     //slides.forEach(el => el.style.width = width);
 
 
@@ -223,6 +252,7 @@ function slider() {
         }
         slidesField.style.transform = `translate(-${indent}px)`;
         addClassNeighbour(dots);
+        console.log(indent);
     });
     prev.addEventListener('click', () => {
         if (indent === 0) {
@@ -234,6 +264,7 @@ function slider() {
         }
         slidesField.style.transform = `translate(-${indent}px)`;
         addClassNeighbour(dots);
+        console.log(indent);
     });
 
     dots.forEach(dot => {
