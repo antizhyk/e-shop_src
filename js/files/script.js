@@ -43,6 +43,7 @@ function slider() {
         next = document.querySelector('.products__arrow_n'),
         slider = document.querySelector('.slider'),
         indicators = document.querySelector('.products__dots'),
+        classToBlock = 'slider__block'
         dots = [],
 //---------------------------Медиа запросы--------------------------------------
         md1 = window.matchMedia('(min-width: 991px)'),
