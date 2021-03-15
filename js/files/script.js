@@ -47,6 +47,23 @@ $(document).ready(function () {
         dots: true,
         nav: true,
         navText: ["", ""],
+        responsive: {
+            0: {
+                items: 1,
+                dots: false,
+            },
+            500: {
+                items: 2,
+                dots: false,
+            },
+            767: {
+                items: 3,
+                dots: false,
+            },
+            992: {
+                items: 4
+            }
+        }
     });
 
     var dotActive = $('.owl-dots').children('.active');
@@ -59,7 +76,6 @@ $(document).ready(function () {
             $(this).next().addClass('dot-next').next().addClass('dot-next-next');
         }
     });
-
 
     sliderProducts.on('translate.owl.carousel', function (e) {
         dots.removeClass('dot-next').removeClass('dot-next-next')
