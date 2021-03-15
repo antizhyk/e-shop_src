@@ -33,13 +33,13 @@
 	}
 
 	.owl-wrapper,
-	.owl-item{
+	.owl-item {
 		-webkit-backface-visibility: hidden;
 		-moz-backface-visibility: hidden;
 		-ms-backface-visibility: hidden;
-		-webkit-transform: translate3d(0,0,0);
-		-moz-transform: translate3d(0,0,0);
-		-ms-transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
+		-ms-transform: translate3d(0, 0, 0);
 	}
 
 	.owl-item {
@@ -77,7 +77,7 @@
 		background: none;
 		color: inherit;
 		border: none;
-		padding:0!important;
+		padding: 0 !important;
 		font: inherit;
 	}
 
@@ -117,6 +117,24 @@
 
 	&.owl-rtl .owl-item {
 		float: right;
+	}
+	.owl-next,
+	.owl-prev {
+		position: absolute;
+		top: 50%;
+		transform: translate(0, -50%);
+		cursor: pointer;
+		width: 24px;
+		height: 24px;
+	}
+	.owl-prev {
+		left: 3.51%;
+		background: url("../img/icons/arrow.svg") center/ contain no-repeat !important;
+	}
+	.owl-next {
+		transform: translate(2px, -60%) rotate(180deg);
+		right: 3.51%;
+		background: url("../img/icons/arrow.svg") center/ contain no-repeat !important;
 	}
 }
 

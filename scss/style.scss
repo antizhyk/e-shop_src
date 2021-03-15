@@ -299,35 +299,22 @@ body {
 //<PRODUCTS>====================================================================================================
 .products {
 	margin-bottom: 40px;
+	position: relative;
 
 	&__contain {
 		background-color: #fff;
 		border-radius: 16px;
-		padding: 52px 0 73px;
+		padding: 0 0 65px;
 	}
 
 	&__wrap {
 		position: relative;
 	}
-	&__arrow {
-		position: absolute;
-		top: 50%;
-		transform: translate(0, -50%);
-		cursor: pointer;
 
-		&_p {
-			left: 3.51%;
-		}
-
-		&_n {
-			transform: translate(2px, -60%) rotate(180deg);
-			right: 3.51%;
-		}
-	}
-	&__dots {
+	.owl-dots {
 		position: absolute;
 		right: 0;
-		bottom: -46px;
+		bottom: -55px;
 		left: 0;
 		z-index: 15;
 		display: flex;
@@ -335,27 +322,52 @@ body {
 		margin-right: 15%;
 		margin-left: 15%;
 		list-style: none;
+
+		.owl-dot {
+			span {
+				border-radius: 50%;
+				display: inline-block;
+				box-sizing: content-box;
+				width: 8px;
+				height: 8px;
+				margin: 0 6px;
+				cursor: pointer;
+				background: rgba(27, 36, 55, 0.2);
+				transition: opacity 0.6s ease;
+			}
+			&.active {
+				span {
+					opacity: 1;
+					position: relative;
+					background: rgba(27, 36, 55, 1);
+					&::before {
+						content: "";
+						width: 16px;
+						height: 16px;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+						border-radius: 50%;
+						border: 1px solid rgba(27, 36, 55, 0.4);
+					}
+				}
+			}
+		}
+		.dot-prev,
+		.dot-next {
+			span {
+				background: rgba(27, 36, 55, 0.6) !important;
+			}
+		}
+		.dot-prev-prev,
+		.dot-next-next {
+			span {
+				background: rgba(27, 36, 55, 0.4) !important;
+			}
+		}
 	}
-	&__dot {
-		box-sizing: content-box;
-		width: 8px;
-		height: 8px;
-		border-radius: 50%;
-		margin: 0 6px;
-		cursor: pointer;
-		background: #1b2437;
-		opacity: 0.2;
-		transition: opacity 0.6s ease;
-		&_active {
-			opacity: 1;
-		}
-		&_neighbour {
-			opacity: 0.6;
-		}
-		&_predecessor {
-			opacity: 0.4;
-		}
-	}
+
 	&__slider {
 	}
 }
@@ -363,16 +375,7 @@ body {
 .slider {
 	max-width: 79.25%;
 	margin: 0 auto;
-	overflow: hidden;
-	&__wrap {
-		display: flex;
-		transition: all 0.3s ease 0s;
-	}
-	&__block {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-	}
+
 	&__item {
 		display: flex;
 		flex-direction: column;
