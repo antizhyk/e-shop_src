@@ -55,24 +55,14 @@ spollerTitle.addEventListener('mouseover', e => {
             return irit;
         }
     })
-    if (e.target == spollerTitle && !spollerList.classList.contains('active')) {
-        spollerList.classList.add('active');
-        spollerTitle.classList.add('arrow');
-        if (document.documentElement.clientWidth < 600) {
-            mainLink.forEach(el => {
-                el.style.cssText = `
-                pointer-events: none;
-                cursor: default;
-                `
-            });
-        }
+
+    spollerList.classList.toggle('active');
+    spollerTitle.classList.toggle('arrow');
+    if (spollerList.classList.contains('active')) {
         setTimeout(() => {
             spollerList.style.opacity = 1
         }, 10);
-
-    } else if (e.target !== irit) {
-        spollerList.classList.remove('active');
-        spollerTitle.classList.remove('arrow');
+    } else {
         let interval = setInterval(() => {
             spollerList.style.opacity = 0;
         }, 100);
@@ -80,8 +70,11 @@ spollerTitle.addEventListener('mouseover', e => {
             clearInterval(interval);
         }, 101);
     }
-})
-spollerTitle.addEventListener('mouseout', e => {
+
+
+
+});
+spollerTitle.addEventListener('click', e => {
     document.querySelectorAll('.spoller__list > li').forEach(el => {
         if (e.target == el) {
             irit = el;
@@ -177,13 +170,11 @@ function collectionsSlider() {
             responsive: {
                 0: {
                     items: 1,
-                    dots: false,
-                    nav: false,
+
                 },
                 500: {
                     items: 2,
-                    dots: false,
-                    nav: false,
+
                 },
                 992: {
                     items: 3

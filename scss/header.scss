@@ -397,6 +397,12 @@
 			}
 			.spoller__link {
 				font-size: 18px;
+				&:hover {
+					text-decoration: underline;
+					&::before {
+						display: none;
+					}
+				}
 				@media (max-width: $md2+px) {
 					font-size: 24px;
 					display: flex;
