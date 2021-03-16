@@ -408,10 +408,13 @@ body {
 .collection {
 	margin-bottom: 40px;
 	font-family: "Playfair";
-	font-size: 34px;
-	line-height: 45px;
+	@include adaptiv-value("font-size", 34, 24, 0);
+	@include adaptiv-value("line-height", 45, 35, 0);
 	letter-spacing: 0.4px;
 	color: #1b2437;
+	@media (max-width: $md3+px) {
+		margin-bottom: 20px;
+	}
 	&__contain {
 	}
 
@@ -423,12 +426,13 @@ body {
 	}
 
 	&__slider {
+		position: relative;
 	}
 	.owl-nav {
 		display: inline-block;
 		margin: 0;
 		position: relative;
-		min-width: 160px;
+		width: 220px;
 	}
 	.owl-prev,
 	.owl-next {
@@ -453,6 +457,67 @@ body {
 	.owl-stage {
 		display: flex;
 	}
+	&__arr {
+		position: absolute !important;
+		right: 0;
+		top: -65px;
+	}
+	&__dots {
+		width: 200px;
+		overflow: hidden;
+		background: transparent !important;
+		margin: 0 !important;
+		padding: 0 !important;
+		display: flex !important;
+		justify-content: center;
+		align-items: center;
+		overflow: visible;
+		.owl-dot {
+			display: none !important;
+			background-color: transparent !important;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+
+			&.active {
+				span {
+					opacity: 1;
+					position: relative;
+					background: rgba(27, 36, 55, 1) !important;
+					&::before {
+						content: "";
+						width: 16px;
+						height: 16px;
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+						border-radius: 50%;
+						border: 1px solid rgba(27, 36, 55, 0.4);
+					}
+				}
+			}
+		}
+		.dot-prev-prev,
+		.dot-prev,
+		.owl-dot.active,
+		.dot-next,
+		.dot-next-next {
+			display: inline-block !important;
+		}
+		.dot-prev,
+		.dot-next {
+			span {
+				background: rgba(27, 36, 55, 0.6) !important;
+			}
+		}
+		.dot-prev-prev,
+		.dot-next-next {
+			span {
+				background: rgba(27, 36, 55, 0.4) !important;
+			}
+		}
+	}
 
 	&__item {
 		border-radius: 25px;
@@ -474,6 +539,9 @@ body {
 	&__block {
 		flex: 1 1 50%;
 		padding: 24px 32px;
+		@media (max-width: $md3+px) {
+			padding: 10px 15px;
+		}
 		display: flex;
 		justify-content: space-between;
 		flex-direction: column;
@@ -488,21 +556,31 @@ body {
 		font-family: Mulish;
 		font-size: 16px;
 		margin-bottom: 28px;
+		@media (max-width: $md2+px) {
+			margin-bottom: 10px;
+		}
 	}
 
 	&__row {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		@media (max-width: $md3+px) {
+			flex-direction: column;
+		}
+		@media (max-width: 500px) {
+			flex-direction: row;
+		}
 	}
 
 	&__price {
 		display: flex;
+		align-items: center;
 	}
 
 	&__valuthe {
 		position: relative;
-		bottom: -20px;
+		bottom: -10px;
 		font-size: 24px;
 		line-height: 32px;
 		margin-right: 8px;
@@ -515,6 +593,12 @@ body {
 		line-height: 25px;
 		color: #eda3b5;
 		border: 2px solid #eda3b5;
+		@media (max-width: $md3+px) {
+			margin-top: 15px;
+		}
+		@media (max-width: 500px) {
+			margin-top: 0;
+		}
 	}
 }
 

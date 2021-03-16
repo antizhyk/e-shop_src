@@ -111,14 +111,12 @@ function collectionsSlider() {
                 0: {
                     items: 1,
                     dots: false,
+                    nav: false,
                 },
                 500: {
                     items: 2,
                     dots: false,
-                },
-                767: {
-                    items: 3,
-                    dots: false,
+                    nav: false,
                 },
                 992: {
                     items: 3
@@ -131,15 +129,13 @@ function collectionsSlider() {
         const wrap = document.querySelector('.collection__slider');
         const navArr = wrap.querySelector('.owl-nav');
         const navDots = wrap.querySelector('.owl-dots');
-        /* navArr.append(navDots); */
         navArr.querySelector('.owl-prev').after(navDots);
         navArr.classList.add('collection__arr');
         navDots.classList.add('collection__dots');
 
-        var arrNav = $('.collection__arr');
-        var arrDots = $('.collection__dots');
+
         //=============================EXPEREMENT============================================
-        var dotActive = $('.owl-dots').children('.active');
+
         var dots = $('.owl-dots').children()
 
         dots.each(function (index, value) {
