@@ -2,10 +2,51 @@
 let menuBody = document.querySelector('.menu__list');
 let spollerList = document.querySelector('.spoller__list');
 let spollerTitle = document.querySelector('.spoller__title');
-let mainLink = document.querySelectorAll('.menu__link_m')
-let irit = null;
+let mainLink = document.querySelectorAll('.menu__link_m');
+let spollerIcon = document.querySelector('.spoller__icon_m')
+let irit = [];
+let bodyMenu = document.querySelector('.menu__body');
 spollerList.style.opacity = 0;
 
+
+bodyMenu.addEventListener('touchend', (e) => {
+    const targ = e.target;
+    if (targ === spollerIcon) {
+        document.querySelectorAll('.spoller__list > li > a').forEach(el => {
+            irit.push(el);
+            return irit;
+        })
+        if (e.target == spollerIcon && !spollerList.classList.contains('active')) {
+            spollerList.classList.add('active');
+            spollerTitle.classList.add('arrow');
+            mainLink.forEach(el => {
+                el.style.cssText = `
+                pointer-events: none;
+                cursor: default;
+                `
+            });
+
+            setTimeout(() => {
+                spollerList.style.opacity = 1
+            }, 10);
+        }
+    }
+    if (targ !== spollerIcon && spollerList.classList.contains('active')) {
+        irit.forEach(item => {
+            if (e.target !== item) {
+                spollerList.classList.remove('active');
+                spollerTitle.classList.remove('arrow');
+                let interval = setInterval(() => {
+                    spollerList.style.opacity = 0;
+                }, 100);
+                setTimeout(() => {
+                    clearInterval(interval);
+                }, 101);
+            }
+        })
+    }
+
+});
 
 spollerTitle.addEventListener('mouseover', e => {
     document.querySelectorAll('.spoller__list > li').forEach(el => {
@@ -19,7 +60,6 @@ spollerTitle.addEventListener('mouseover', e => {
         spollerTitle.classList.add('arrow');
         if (document.documentElement.clientWidth < 600) {
             mainLink.forEach(el => {
-                console.log(el);
                 el.style.cssText = `
                 pointer-events: none;
                 cursor: default;
@@ -30,12 +70,9 @@ spollerTitle.addEventListener('mouseover', e => {
             spollerList.style.opacity = 1
         }, 10);
 
-
-
     } else if (e.target !== irit) {
         spollerList.classList.remove('active');
         spollerTitle.classList.remove('arrow');
-
         let interval = setInterval(() => {
             spollerList.style.opacity = 0;
         }, 100);
@@ -51,23 +88,9 @@ spollerTitle.addEventListener('mouseout', e => {
             return irit;
         }
     })
-
-    /* if (e.target == spollerTitle && !spollerList.classList.contains('active')) {
-        spollerList.classList.add('active');
-        spollerTitle.classList.add('arrow');
-        setTimeout(() => {
-            spollerList.style.opacity = 1
-        }, 10);
-        ;
-    } else  */if (e.target !== irit) {
+    if (e.target !== irit) {
         spollerList.classList.remove('active');
         spollerTitle.classList.remove('arrow');
-        if (document.documentElement.clientWidth < 600) {
-            mainLink.forEach(el => {
-                console.log(el);
-                el.style.cssText = ``
-            });
-        }
         let interval = setInterval(() => {
             spollerList.style.opacity = 0;
         }, 100);
