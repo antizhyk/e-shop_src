@@ -12,7 +12,7 @@
 		align-items: center;
 		padding: 20px 0;
 		position: relative;
-		@media (max-width: 600px) {
+		@media (max-width: $md2+px) {
 			height: 50px;
 		}
 	}
@@ -50,7 +50,7 @@
 		position: relative;
 		.icon-menu {
 			display: none;
-			@media (max-width: 600px) {
+			@media (max-width: $md2+px) {
 				display: block;
 				position: absolute;
 				top: 50%;
@@ -108,7 +108,7 @@
 
 	&__basket {
 		margin-left: 24px;
-		@media (max-width: 600px) {
+		@media (max-width: $md2+px) {
 			margin-right: 50px;
 		}
 	}
@@ -118,7 +118,7 @@
 
 	&__bottom {
 		padding: 45px 0 30px;
-		@media (max-width: 599px) {
+		@media (max-width: $md2+px) {
 			padding: 0;
 		}
 	}
@@ -128,7 +128,7 @@
 
 	&__spoller {
 		position: relative;
-		@media (max-width: 600px) {
+		@media (max-width: $md2+px) {
 			position: static;
 		}
 	}
@@ -147,7 +147,7 @@
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
-		@media (max-width: 600px) {
+		@media (max-width: $md2+px) {
 			position: static;
 			transform: translateX(0);
 			margin: 0 -15px;
@@ -167,7 +167,7 @@
 			}
 		}
 	}
-	@media (max-width: 599px) {
+	@media (max-width: $md2+px) {
 		&__item {
 			.social__svg {
 				fill: #fff;
@@ -182,18 +182,18 @@
 	}
 
 	&__list_one {
-		@media (max-width: 600px) {
+		@media (max-width: $md2+px) {
 			display: none;
 		}
 	}
 
 	&__list_two {
-		@media (min-width: 600px) {
+		@media (min-width: $md2+px) {
 			display: none;
 		}
 	}
 	&__wrap_two {
-		@media (min-width: 600px) {
+		@media (max-width: $md2+px) {
 			display: none;
 		}
 	}
@@ -224,8 +224,8 @@
 		line-height: 32px;
 		color: #1b2437;
 		cursor: pointer;
-		&_a {
-			@media (min-width: 599px) {
+		&:hover {
+			@media (max-width: $md2+px) {
 				position: relative;
 				&::before {
 					content: "";
@@ -248,7 +248,7 @@
 			}
 		}
 	}
-	@media (max-width: 600px) {
+	@media (max-width: $md2+px) {
 		&__body {
 			position: fixed;
 			width: 100%;
@@ -284,32 +284,59 @@
 			justify-content: center;
 			align-items: center;
 			li {
-				margin: 0 0 25px 0;
 				padding: 0;
+				width: 100%;
+				height: 50px;
+				border-top: 1px solid black;
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 				&:last-child {
-					margin: 0;
+					border-bottom: 1px solid black;
 				}
 			}
 		}
 		&__link {
 			color: #fff;
 			font-size: 26px;
+			@media (max-width: $md2+px) {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
 		}
 	}
 
 	.spoller {
 		&__title {
+			padding-right: 25px;
 			position: relative;
-			&::before {
+			display: block;
+			@media (max-width: $md2+px) {
+				padding-right: 0;
+			}
+			&::after {
 				content: "";
 				width: 15px;
-				background-image: url(../img/icons/arrow_list.svg);
+				background: url("../img/icons/arrow_list.svg") center/ contain no-repeat;
 				height: 15px;
 				transition: transform 0.3s ease 0s;
 				position: absolute;
-				right: -25px;
+				right: 0;
 				top: 50%;
 				transform: translateY(-50%);
+				@media (max-width: $md2+px) {
+					width: 30px;
+					height: 30px;
+					z-index: 10;
+					background: url("../img/icons/arrow_list_w.svg") center/ contain no-repeat;
+					right: 50%;
+					top: 50%;
+				}
+			}
+			&::before {
+				display: none;
 			}
 			&.arrow {
 				&::before {
@@ -317,7 +344,7 @@
 				}
 			}
 
-			@media (max-width: 600px) {
+			@media (max-width: $md2+px) {
 				position: static;
 			}
 		}
@@ -333,7 +360,7 @@
 			border: 1px solid #4e4e4e;
 			border-radius: 5px;
 			background-color: #fff;
-			@media (max-width: 600px) {
+			@media (max-width: $md2+px) {
 				border: none;
 				position: fixed;
 				top: 0;
@@ -342,20 +369,28 @@
 				background-color: rgb(71, 71, 71);
 				height: 100vh;
 				padding: 80px 20px 20px;
+
 				& > li {
 					text-align: center;
 					margin-bottom: 20px;
+					@media (max-width: $md2+px) {
+						margin-bottom: 0;
+						height: 50px;
+					}
 				}
 			}
 			.spoller__link {
 				font-size: 18px;
-				@media (max-width: 600px) {
+				@media (max-width: $md2+px) {
 					font-size: 24px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
 				}
 			}
 			&.active {
 				height: 150px;
-				@media (max-width: 600px) {
+				@media (max-width: $md2+px) {
 					top: 0;
 					left: 25%;
 					height: 100vh;

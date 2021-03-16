@@ -160,12 +160,12 @@ body {
 	}
 	&__wrap {
 		display: grid;
-		grid-template-columns: 1fr 0.5fr 0.5fr;
+		grid-template-columns: 49.9% 0.5fr 0.5fr;
 		grid-template-rows: repeat(2, 1fr);
 		grid-template-areas:
 			"big smallOne smallTwo"
 			"big middle middle";
-		@include adaptiv-value("grid-gap", 24, 7.5, 0);
+		@include adaptiv-value("grid-gap", 17, 7.5, 0);
 		justify-content: center;
 		@media (max-width: $md2+px) {
 			grid-template-rows: 1fr 0.7fr 0.7fr;
@@ -205,7 +205,7 @@ body {
 	}
 	&__big {
 		grid-area: big;
-		height: 33.22vw;
+		height: 32vw;
 		max-height: 504px;
 		@media (max-width: $md3+px) {
 			height: 40vw;
@@ -406,7 +406,7 @@ body {
 //</PRODUCTS>====================================================================================================
 //<COLLECTION>====================================================================================================
 .collection {
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	font-family: "Playfair";
 	@include adaptiv-value("font-size", 34, 24, 0);
 	@include adaptiv-value("line-height", 45, 35, 0);
@@ -555,10 +555,7 @@ body {
 		color: #8e8e93;
 		font-family: Mulish;
 		font-size: 16px;
-		margin-bottom: 28px;
-		@media (max-width: $md2+px) {
-			margin-bottom: 10px;
-		}
+		margin-bottom: 5px;
 	}
 
 	&__row {
