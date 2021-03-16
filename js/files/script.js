@@ -203,7 +203,7 @@ function collectionsSlider() {
 
         //=============================EXPEREMENT============================================
 
-        var dots = $('.owl-dots').children()
+        var dots = $('.collection__dots').children()
 
         dots.each(function (index, value) {
             if ($(this).attr('class') === 'owl-dot active') {
@@ -211,16 +211,26 @@ function collectionsSlider() {
             }
         });
 
-        sliderCollection.on('translate.owl.carousel', function (e) {
+        sliderCollection.on('changed.owl.carousel', function (e) {
             dots.removeClass('dot-next').removeClass('dot-next-next')
             dots.removeClass('dot-prev').removeClass('dot-prev-prev')
             dots.each(function (index, value) {
                 if ($(this).attr('class') === 'owl-dot active') {
-                    $(this).next().addClass('dot-next').next().addClass('dot-next-next');
-                    $(this).prev().addClass('dot-prev').prev().addClass('dot-prev-prev');
+                    if (index === 0) {
+                        $(this).next().addClass('dot-next').next().addClass('dot-next-next');
+                    } else if (index === dots.length - 1) {
+                        $(this).prev().addClass('dot-prev').prev().addClass('dot-prev-prev');
+                    } else if (index > 0 && index < dots.length) {
+                        $(this).next().addClass('dot-next')
+                        $(this).prev().addClass('dot-prev')
+                    }
+                    /*  $(this).next().addClass('dot-next').next().addClass('dot-next-next');
+                     $(this).prev().addClass('dot-prev').prev().addClass('dot-prev-prev'); */
                 }
             });
-
+        })
+        sliderCollection.on('next.owl.carousel', function (e) {
+            console.log('hi');
         })
     });
 }

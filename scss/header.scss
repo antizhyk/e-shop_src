@@ -225,7 +225,7 @@
 		color: #1b2437;
 		cursor: pointer;
 		&:hover {
-			@media (max-width: $md2+px) {
+			@media (min-width: $md2+px) {
 				position: relative;
 				&::before {
 					content: "";
@@ -405,7 +405,7 @@
 				}
 			}
 			&.active {
-				height: 150px;
+				height: auto;
 				@media (max-width: $md2+px) {
 					top: 0;
 					left: 25%;
