@@ -97,8 +97,9 @@ body {
 //</ОСНОВНОЙ БЛОК>====================================================================================================
 //<BIGBOARD>====================================================================================================
 .bigboard {
-	width: 100%;
+	max-width: 1366px;
 	height: 540px;
+	margin: 0 auto;
 	@media (max-width: $md3+px) {
 		height: 340px;
 	}
@@ -128,8 +129,8 @@ body {
 
 	&__title {
 		font-family: "Playfair";
-		@include adaptiv-value("font-size", 48, 34, 0);
-		@include adaptiv-value("line-height", 64, 38, 0);
+		@include adaptiv-value("font-size", 48, 34, 1);
+		@include adaptiv-value("line-height", 64, 38, 1);
 		color: #ffffff;
 		margin-bottom: 16px;
 	}
@@ -160,12 +161,12 @@ body {
 	}
 	&__wrap {
 		display: grid;
-		grid-template-columns: 1fr 0.5fr 0.5fr;
+		grid-template-columns: 49.9% 0.5fr 0.5fr;
 		grid-template-rows: repeat(2, 1fr);
 		grid-template-areas:
 			"big smallOne smallTwo"
 			"big middle middle";
-		@include adaptiv-value("grid-gap", 24, 7.5, 0);
+		@include adaptiv-value("grid-gap", 17, 7.5, 1);
 		justify-content: center;
 		@media (max-width: $md2+px) {
 			grid-template-rows: 1fr 0.7fr 0.7fr;
@@ -205,7 +206,7 @@ body {
 	}
 	&__big {
 		grid-area: big;
-		height: 33.22vw;
+		height: 32vw;
 		max-height: 504px;
 		@media (max-width: $md3+px) {
 			height: 40vw;
@@ -231,8 +232,8 @@ body {
 	&__title {
 		font-family: Playfair;
 		font-size: 34px;
-		@include adaptiv-value("font-size", 34, 18, 0);
-		@include adaptiv-value("line-height", 51, 23, 0);
+		@include adaptiv-value("font-size", 34, 18, 1);
+		@include adaptiv-value("line-height", 51, 23, 1);
 		letter-spacing: 0.4px;
 		color: #ffffff;
 		&_b {
@@ -406,7 +407,7 @@ body {
 //</PRODUCTS>====================================================================================================
 //<COLLECTION>====================================================================================================
 .collection {
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	font-family: "Playfair";
 	@include adaptiv-value("font-size", 34, 24, 0);
 	@include adaptiv-value("line-height", 45, 35, 0);
@@ -432,7 +433,7 @@ body {
 		display: inline-block;
 		margin: 0;
 		position: relative;
-		width: 220px;
+		width: 168px;
 	}
 	.owl-prev,
 	.owl-next {
@@ -463,7 +464,7 @@ body {
 		top: -65px;
 	}
 	&__dots {
-		width: 200px;
+		width: 152px;
 		overflow: hidden;
 		background: transparent !important;
 		margin: 0 !important;
@@ -555,10 +556,7 @@ body {
 		color: #8e8e93;
 		font-family: Mulish;
 		font-size: 16px;
-		margin-bottom: 28px;
-		@media (max-width: $md2+px) {
-			margin-bottom: 10px;
-		}
+		margin-bottom: 5px;
 	}
 
 	&__row {

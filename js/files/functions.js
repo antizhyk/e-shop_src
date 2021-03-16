@@ -73,6 +73,16 @@ if (iconMenu != null) {
 			menuBody.classList.toggle("_active");
 			document.querySelector('.header__logo-text').classList.toggle('header__logo_w');
 			document.querySelector('.header__logo-svg').classList.toggle('header__logo_w');
+			if (spollerList.classList.contains('active')) {
+				spollerList.classList.remove('active');
+				spollerTitle.classList.remove('arrow');
+				let interval = setInterval(() => {
+					spollerList.style.opacity = 0;
+				}, 100);
+				setTimeout(() => {
+					clearInterval(interval);
+				}, 101);
+			}
 		}
 	});
 };
@@ -81,6 +91,8 @@ function menu_close() {
 	let menuBody = document.querySelector(".menu__body");
 	iconMenu.classList.remove("_active");
 	menuBody.classList.remove("_active");
+	spollerList.classList.remove('active');
+	spollerTitle.classList.remove('arrow');
 }
 //=================
 //BodyLock
