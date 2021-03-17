@@ -1,11 +1,14 @@
 //========================SPOILER=====================
-let menuBody = document.querySelector('.menu__list');
 let spollerList = document.querySelector('.spoller__list');
 let spollerTitle = document.querySelector('.spoller__title');
 let mainLink = document.querySelectorAll('.menu__link_m');
+let linksMenu = document.querySelectorAll('.menu__link')
 let spollerIcon = document.querySelector('.spoller__icon_m')
 let irit = [];
 let bodyMenu = document.querySelector('.menu__body');
+function offClick(e) {
+    e.preventDefault();
+}
 spollerList.style.opacity = 0;
 
 
@@ -19,12 +22,12 @@ bodyMenu.addEventListener('touchend', (e) => {
         if (e.target == spollerIcon && !spollerList.classList.contains('active')) {
             spollerList.classList.add('active');
             spollerTitle.classList.add('arrow');
-            mainLink.forEach(el => {
-                el.style.cssText = `
-                pointer-events: none;
-                cursor: default;
-                `
-            });
+            linksMenu.forEach(el => {
+                if (!el.classList.contains('spoller__link')) {
+                    el.addEventListener('click', offClick)
+
+                }
+            })
 
             setTimeout(() => {
                 spollerList.style.opacity = 1
@@ -36,8 +39,16 @@ bodyMenu.addEventListener('touchend', (e) => {
             if (e.target !== item) {
                 spollerList.classList.remove('active');
                 spollerTitle.classList.remove('arrow');
+
+
+
                 let interval = setInterval(() => {
                     spollerList.style.opacity = 0;
+                    linksMenu.forEach(el => {
+                        if (!el.classList.contains('spoller__link')) {
+                            el.removeEventListener('click', offClick)
+                        }
+                    })
                 }, 100);
                 setTimeout(() => {
                     clearInterval(interval);
@@ -70,9 +81,6 @@ spollerTitle.addEventListener('mouseover', e => {
             clearInterval(interval);
         }, 101);
     }
-
-
-
 });
 spollerTitle.addEventListener('click', e => {
     document.querySelectorAll('.spoller__list > li').forEach(el => {
