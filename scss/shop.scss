@@ -71,13 +71,14 @@
         align-self: flex-end;
         width: 72px;
         height: 34px;
-        background: url("../img/switched/list.svg") center/ contain no-repeat;
+        background: url("../img/switched/grid.svg") center/ contain no-repeat;
         margin: 0px 0px 5px 15px;
+        cursor: pointer;
         @media (max-width: $md1+px) {
             align-self: center;
         }
-        &_list {
-            background: url("../img/switched/grid.svg") center/ contain no-repeat;
+        &_grid {
+            background: url("../img/switched/list.svg") center/ contain no-repeat;
         }
     }
 }
