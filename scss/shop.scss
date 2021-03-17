@@ -1,5 +1,9 @@
 //===========================<SHOP>========================
 //===========================<HEADER>========================
+.header__content {
+    max-width: 1140px;
+    padding: 0;
+}
 .shop-header {
     &__top {
         position: relative;
@@ -11,6 +15,7 @@
         transform: translateX(-50%);
     }
     &__menu-link {
+        font-size: 24px;
         &::before {
             top: 100% !important;
             height: 15px !important;
@@ -309,6 +314,7 @@
 
 .content {
     &__contain {
+        margin-bottom: 48px;
     }
 
     &__wrap {
@@ -373,33 +379,96 @@
 
     .collection__valuthe {
     }
-
-    .collection__btn {
+    .collection__btn:hover {
+        background: #eda3b5;
+        color: #fff;
     }
 }
 .content__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 24px;
+    @media (max-width: $md1+px) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+    }
+    @media (max-width: $md2+px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: $md3+px) {
+        grid-gap: 10px;
+        justify-items: center;
+    }
+    @media (max-width: 600px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
     .content__item {
+        flex-direction: column;
+        height: 560px;
+        @media (max-width: $md1+px) {
+            max-width: 300px;
+            height: 490px;
+        }
+        @media (max-width: $md2+px) {
+            max-width: 364px;
+        }
+        @media (max-width: $md3+px) {
+            max-width: 45vw;
+        }
+        @media (max-width: 600px) {
+            max-width: 360px;
+        }
+        @media (max-width: 384px) {
+            max-width: 305px;
+        }
     }
 
     .collection__picture {
+        flex: 0 0 48% !important;
+        border-radius: 25px 25px 0 0;
     }
 
     .collection__img {
     }
 
     .collection__block {
+        @media (max-width: $md1+px) {
+            flex: 0 0 50%;
+            padding: 10px;
+        }
     }
 
     .collection__title {
+        margin-bottom: 0px;
+        @media (max-width: $md1+px) {
+            font-size: 24px;
+            line-height: 28px;
+        }
     }
 
     .collection__text {
+        margin-bottom: 0px;
     }
 
     .collection__row {
+        justify-content: space-between;
+        @media (max-width: $md1+px) {
+            flex-direction: column;
+        }
+        @media (max-width: $md2+px) {
+            flex-direction: row;
+        }
+        @media (max-width: 680px) {
+            flex-direction: column;
+        }
     }
 
     .collection__price {
+        @media (max-width: $md1+px) {
+            font-size: 24px;
+            line-height: 28px;
+            margin-bottom: 10px;
+        }
     }
 
     .collection__valuthe {
