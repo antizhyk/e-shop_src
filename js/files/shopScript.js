@@ -1,3 +1,4 @@
+//=====================ПЕРЕКЛЮЧЕНИЕ СЕТКА-СПИСОК=============
 const funcSwitch = document.querySelector('.func__switch');
 const funcWrap = document.querySelector('.content__wrap');
 const mediaQuery = window.matchMedia('(max-width: 600px)');
@@ -20,3 +21,4 @@ function handleTabletChange(e) {
 }
 mediaQuery.addListener(handleTabletChange)
 handleTabletChange(mediaQuery)
+//=====================/ПЕРЕКЛЮЧЕНИЕ СЕТКА-СПИСОК=============

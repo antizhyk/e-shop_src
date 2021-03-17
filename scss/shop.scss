@@ -480,6 +480,64 @@
 }
 
 //===========================</CONTENT>========================
+//===========================<PAGINATION>========================
+.pagination {
+    margin-bottom: 48px;
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__arr {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        &_prev {
+            background: url("../img/icons/pagination_p.svg") center / contain no-repeat;
+        }
+        &_next {
+            background: url("../img/icons/pagination_n.svg") center / contain no-repeat;
+        }
+    }
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 -7px;
+        @media (max-width: $md4+px) {
+            display: none;
+        }
+        li {
+            padding: 0 7px;
+        }
+        &_m {
+            display: none;
+            @media (max-width: $md4+px) {
+                display: flex;
+            }
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        font-size: 20px;
+        line-height: 25px;
+        color: #1b2437;
+
+        &_active {
+            background: #eda3b5;
+            border-radius: 8px;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+//===========================</PAGINATION>========================
 //===========================<FOOTER>========================
 .shop-footer {
     &__row {
