@@ -77,11 +77,11 @@
 		}
 		&:before {
 			content: "";
+			height: 24px;
+			width: 24px;
 			display: inline-block;
 			transition: all 0.3s ease 0s;
-			width: 11px;
-			height: 7px;
-			background: url("../img/icons/select.svg") center / 100% no-repeat;
+			background: url("../img/icons/arrow_s.svg") center / 100% no-repeat;
 		}
 	}
 	&__input {

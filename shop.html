@@ -139,22 +139,28 @@
                         <div class="form-func__size size">
                             <div class="size__title func__title">
                                 Size
-                                <span class="func__title_p">Size Guide</span>
+                                <span class="size__title_p">Size Guide</span>
                             </div>
                             <div class="size__row func__row">
                                 <div class="size__item">
-                                    <input type="radio" class="size__radio" name="size">
-                                    <span class="size__mask">XS</span>
+                                    <label class="size__label">
+                                        <input type="radio" class="size__radio" name="size">
+                                        <span class="size__mask">S</span>
+                                    </label>
                                 </div>
                                 <div class="size__item">
-                                    <input type="radio" class="size__radio" name="size">
-                                    <span class="size__mask">S</span>
+                                    <label class="size__label">
+                                        <input type="radio" class="size__radio" name="size">
+                                        <span class="size__mask">M</span>
+                                    </label>
                                 </div>
                                 <div class="size__item">
-                                    <input type="radio" class="size__radio" name="size">
-                                    <span class="size__mask">M</span>
+                                    <label class="size__label">
+                                        <input type="radio" class="size__radio" name="size">
+                                        <span class="size__mask">XS</span>
+                                    </label>
                                 </div>
-                                <div class="size__item">
+                                <div class="size__item size__item_s">
                                     <select name="form[]" class="size__select">
                                         <option value="1" selected="selected">Пункт №1</option>
                                         <option value="2">Пункт №2</option>
@@ -169,30 +175,46 @@
                                 Color
                             </div>
                             <div class="color__row func__row">
-                                <div class="color__item">
-                                    <input type="radio" class="color__radio" name="color">
-                                    <span class="color__mask"></span>
-                                </div>
-                                <div class="color__item">
-                                    <input type="radio" class="color__radio" name="color">
-                                    <span class="color__mask"></span>
-                                </div>
-                                <div class="color__item">
-                                    <input type="radio" class="color__radio" name="color">
-                                    <span class="color__mask"></span>
-                                </div>
+                                <label class="color__item">
+                                    <div class="color__label">
+                                        <input type="radio" class="color__radio" name="color">
+                                        <span class="color__mask"></span>
+                                    </div>
+
+                                </label>
+                                <label class="color__item">
+                                    <div class="color__label">
+                                        <input type="radio" class="color__radio" name="color">
+                                        <span class="color__mask"></span>
+                                    </div>
+                                </label>
+                                <label class="color__item">
+                                    <div class="color__label">
+                                        <input type="radio" class="color__radio" name="color">
+                                        <span class="color__mask"></span>
+                                    </div>
+                                </label>
                                 <div class="color__item">
                                     <select name="form[]" class="color__select">
-                                        <option value="1" selected="selected">Пункт №1</option>
-                                        <option value="2">Пункт №2</option>
-                                        <option value="3">Пункт №3</option>
-                                        <option value="4">Пункт №4</option>
+                                        <option value="1" selected="selected"></option>
+                                        <option value="2"></option>
+                                        <option value="3"></option>
+                                        <option value="4"></option>
+                                        <option value="1" selected="selected"></option>
+                                        <option value="2"></option>
+                                        <option value="3"></option>
+                                        <option value="4"></option>
+                                        <option value="1" selected="selected"></option>
+                                        <option value="2"></option>
+                                        <option value="3"></option>
+                                        <option value="4"></option>
                                     </select>
                                 </div>
                             </div>
                         </div>
+                        <div class="func__switch"></div>
                     </form>
-                    <div class="func__switch"></div>
+
                 </div>
             </div>
         </main>
