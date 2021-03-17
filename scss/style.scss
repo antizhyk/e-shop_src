@@ -346,12 +346,11 @@ body {
 						content: "";
 						width: 16px;
 						height: 16px;
+						border: 1px solid rgba(27, 36, 55, 0.6);
 						position: absolute;
-						top: 50%;
-						left: 50%;
-						transform: translate(-50%, -50%);
 						border-radius: 50%;
-						border: 1px solid rgba(27, 36, 55, 0.4);
+						top: calc(50% - 8px);
+						left: calc(50% - 8px);
 					}
 				}
 			}
@@ -584,7 +583,10 @@ body {
 		line-height: 32px;
 		margin-right: 8px;
 	}
-
+	.collection__btn:hover {
+		background: #eda3b5;
+		color: #fff;
+	}
 	&__btn {
 		font-family: Mulish;
 		font-weight: 600;
@@ -592,6 +594,7 @@ body {
 		line-height: 25px;
 		color: #eda3b5;
 		border: 2px solid #eda3b5;
+
 		@media (max-width: $md3+px) {
 			margin-top: 15px;
 		}

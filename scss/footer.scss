@@ -107,8 +107,8 @@
 
     &__title {
         font-family: "Playfair";
-        font-size: 24px;
-        line-height: 32px;
+        @include adaptiv-value("font-size", 24, 18, 1);
+        @include adaptiv-value("line-height", 32, 24, 1);
         color: #1b2437;
         margin-bottom: 24px;
         @media (max-width: $md2+px) {
