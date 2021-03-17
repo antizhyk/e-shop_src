@@ -305,6 +305,91 @@
 }
 
 //===========================</SHOP>========================
+//===========================<CONTENT>========================
+
+.content {
+    &__contain {
+    }
+
+    &__wrap {
+    }
+
+    &__item {
+    }
+    .collection__item {
+        font-family: Playfair;
+        font-size: 34px;
+        line-height: 45px;
+        letter-spacing: 0.4px;
+        color: #1b2437;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .collection__picture {
+    }
+
+    .collection__img {
+    }
+
+    .collection__block {
+    }
+
+    .collection__title {
+    }
+
+    .collection__text {
+    }
+
+    .collection__row {
+    }
+
+    .collection__price {
+    }
+
+    .collection__valuthe {
+    }
+
+    .collection__btn {
+    }
+}
+.content__grid {
+    .content__item {
+    }
+
+    .collection__picture {
+    }
+
+    .collection__img {
+    }
+
+    .collection__block {
+    }
+
+    .collection__title {
+    }
+
+    .collection__text {
+    }
+
+    .collection__row {
+    }
+
+    .collection__price {
+    }
+
+    .collection__valuthe {
+    }
+
+    .collection__btn {
+    }
+}
+
+//===========================</CONTENT>========================
 //===========================<FOOTER>========================
 .shop-footer {
     &__row {
