@@ -48,6 +48,12 @@
 		display: inline-flex;
 		align-items: center;
 		position: relative;
+		@media (max-width: $md2+px) {
+			padding-right: 30px;
+		}
+		& > a {
+			margin: 0 15px;
+		}
 		.icon-menu {
 			display: none;
 			@media (max-width: $md2+px) {

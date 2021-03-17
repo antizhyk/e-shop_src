@@ -8,7 +8,7 @@
     <div class="wrapper">
         <header class="header">
             <div class="header__content">
-                <div class="header__top">
+                <div class="header__top shop-header__top">
                     <a href="./index.html" class="header__logo">
                         <span class="header__logo-icon">
                             <svg width="22" height="24" viewBox="0 0 22 24" fill="none"
@@ -19,10 +19,10 @@
                             </svg>
                         </span>
                     </a>
-                    <div class="header__menu menu">
+                    <div class="header__menu menu shop-header__menu">
                         <nav class="menu__body">
                             <ul class="menu__list">
-                                <li><a href="" class="menu__link menu__link_m  menu__link_a">Home</a></li>
+                                <li><a href="./index.html" class="menu__link menu__link_m  menu__link_a">Home</a></li>
                                 <li><a href="./shop.html" class="menu__link spoller__title menu__link_m">Shop</a></li>
                                 <li><a href="" class="menu__link menu__link_m">Blog</a></li>
                                 <li><a href="" class="menu__link menu__link_m">Contact</a></li>
@@ -74,6 +74,15 @@
                                     stroke-linecap="round" />
                             </svg>
                         </a>
+                        <a href="" class="header__user">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path class="social__svg" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 1C9.23858 1 7 3.23858 7 6C7 8.76142 9.23858 11 12 11C14.7614 11 17 8.76142 17 6C17 3.23858 14.7614 1 12 1ZM12 3C13.6569 3 15 4.34315 15 6C15 7.65685 13.6569 9 12 9C10.3431 9 9 7.65685 9 6C9 4.34315 10.3431 3 12 3ZM21 22C21 17.0294 16.9706 13 12 13C7.02944 13 3 17.0294 3 22C3 22.5523 3.44772 23 4 23C4.55228 23 5 22.5523 5 22C5 18.134 8.13401 15 12 15C15.866 15 19 18.134 19 22C19 22.5523 19.4477 23 20 23C20.5523 23 21 22.5523 21 22Z"
+                                    fill="#1B2437" />
+                            </svg>
+
+                        </a>
                         <a href="" class="header__basket">
                             <svg class="header__basket-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -96,28 +105,9 @@
             <div class="footer__content">
                 <div class="footer__middle middle">
                     <div class="_container">
-                        <div class="middle__row">
-                            <div class="middle__item-about">
-                                <a href="./index.html" class="header__logo">
-                                    <span class="header__logo-icon">
-                                        <svg width="22" height="24" viewBox="0 0 22 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path class="header__logo-svg" fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M11.9167 21.754C16.3711 21.284 19.8875 17.4261 20.1508 12.6397H11.9167V21.754ZM21.9868 12.6397H22V12.0625V0.375L11 0.375001C4.92486 0.375002 -5.31105e-07 5.60767 0 12.0625C5.31105e-07 18.5173 4.92486 23.75 11 23.75C16.893 23.75 21.7036 18.8263 21.9868 12.6397ZM11 2.32292C5.93739 2.32292 1.83333 6.68347 1.83333 12.0625C1.83333 17.1128 5.45112 21.2653 10.0833 21.754V10.6918H20.1667V2.32292H11Z"
-                                                fill="#1B2437" />
-                                        </svg>
-                                    </span>
-                                    <span class="header__logo-text">Clay Shop</span>
-                                </a>
-                                <div class="middle__text">
-                                    Fashion is a popular
-                                    aesthetic expression at a particular time, place and in a specific context,
-                                    especially in
-                                    clothing, footwear, lifestyle,
-                                    accessories, makeup.
-                                </div>
-                            </div>
-                            <div class="middle__item-list">
+                        <div class="middle__row shop-footer__row">
+
+                            <div class="middle__item-list shop-footer__item-list">
                                 <div class="middle__title">Hot links</div>
                                 <ul class="middle__list">
                                     <li><a href="" class="middle__link">Home</a></li>
@@ -126,7 +116,7 @@
                                     <li><a href="" class="middle__link">Contact</a></li>
                                 </ul>
                             </div>
-                            <div class="middle__item-list">
+                            <div class="middle__item-list shop-footer__item-list">
                                 <div class="middle__title">More info</div>
                                 <ul class="middle__list">
                                     <li><a href="" class="middle__link">How it works</a></li>
@@ -135,12 +125,31 @@
                                     <li><a href="" class="middle__link">Terms & Conditions</a></li>
                                 </ul>
                             </div>
-                            <div class="middle__item-list">
+                            <div class="middle__item-list shop-footer__item-list">
                                 <div class="middle__title">Customer care</div>
                                 <ul class="middle__list">
                                     <li><a href="" class="middle__link">FAQ</a></li>
-                                    <li><a href="" class="middle__link">Terms of use</a></li>
+                                    <li><a href="./shop.html" class="middle__link">Terms of use</a></li>
                                     <li><a href="" class="middle__link">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                            <div class="middle__item-list shop-footer__item-list">
+                                <div class="middle__title">Get newsletter</div>
+                                <ul class="middle__list shop-footer__list">
+                                    <li><a href="" class="middle__link">Get updates about style</a></li>
+                                    <li>
+                                        <form action="#" class="shop-footer__form">
+                                            <input type="email" placeholder="Type your email…"
+                                                class="shop-footer__input">
+                                            <button type="submit" class="form__btn shop-footer__btn"><svg width="24"
+                                                    height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path class="shop-footer__icon"
+                                                        d="M21.621 11.603L2.9839 2.07798C2.45756 1.80899 1.86917 2.27793 2.02569 2.84244L4.32682 9.76261C4.39941 10.0245 11.1946 12.0511 11.1946 12.0511C11.1946 12.0511 4.41296 14.0109 4.34616 14.2712L2.22852 21.1432C2.08441 21.705 2.68385 22.1861 3.20393 21.9288L21.6343 12.8075C22.1291 12.5625 22.119 11.8574 21.621 11.603Z"
+                                                        stroke="white" stroke-width="2" stroke-linejoin="round" />
+                                                </svg></button>
+                                        </form>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
