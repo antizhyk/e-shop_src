@@ -4,9 +4,16 @@
         position: relative;
     }
     &__menu {
+        display: inline-block;
         position: absolute;
-        right: 0;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &__menu-link {
+        &::before {
+            top: 100% !important;
+            height: 15px !important;
+        }
     }
 }
 .shop-footer {
