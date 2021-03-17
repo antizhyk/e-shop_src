@@ -73,7 +73,7 @@ if (iconMenu != null) {
 			menuBody.classList.toggle("_active");
 			document.querySelector('.header__logo-text').classList.toggle('header__logo_w');
 			document.querySelector('.header__logo-svg').classList.toggle('header__logo_w');
-			if (spollerList.classList.contains('active')) {
+			if (spollerList && spollerList.classList.contains('active')) {
 				spollerList.classList.remove('active');
 				spollerTitle.classList.remove('arrow');
 				let interval = setInterval(() => {
@@ -91,8 +91,11 @@ function menu_close() {
 	let menuBody = document.querySelector(".menu__body");
 	iconMenu.classList.remove("_active");
 	menuBody.classList.remove("_active");
-	spollerList.classList.remove('active');
-	spollerTitle.classList.remove('arrow');
+	if (spollerList) {
+		spollerList.classList.remove('active');
+		spollerTitle.classList.remove('arrow');
+	}
+
 }
 //=================
 //BodyLock
@@ -425,7 +428,6 @@ let _slideUp = (target, duration = 500) => {
 	target.style.marginBottom = 0;
 	window.setTimeout(() => {
 		target.style.display = 'none';
-		document.querySelector('.spoller__list').classList.remove('active__list');
 		target.style.removeProperty('height');
 		target.style.removeProperty('padding-top');
 		target.style.removeProperty('padding-bottom');
@@ -459,7 +461,6 @@ let _slideDown = (target, duration = 500) => {
 	target.style.removeProperty('margin-top');
 	target.style.removeProperty('margin-bottom');
 	window.setTimeout(() => {
-		document.querySelector('.spoller__list').classList.add('active__list');
 		target.style.removeProperty('height');
 		target.style.removeProperty('overflow');
 		target.style.removeProperty('transition-duration');

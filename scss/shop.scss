@@ -1,4 +1,5 @@
 //===========================<SHOP>========================
+//===========================<HEADER>========================
 .shop-header {
     &__top {
         position: relative;
@@ -16,6 +17,101 @@
         }
     }
 }
+//===========================</HEADER>========================
+//===========================<SHOP>========================
+.func {
+    &__contain {
+        display: flex;
+    }
+
+    &__form {
+        display: flex;
+    }
+
+    &__title {
+        &_p {
+        }
+    }
+
+    &__row {
+        display: flex;
+    }
+
+    &__switch {
+    }
+}
+
+.form-func {
+    &__change {
+    }
+
+    &__size {
+    }
+
+    &__color {
+    }
+}
+.change {
+    display: flex;
+    &__block {
+    }
+
+    &__title {
+    }
+    .select {
+        &__title {
+            width: 170px;
+            border: 2px solid #e5e5ea;
+            border-radius: 8px;
+        }
+        &__value {
+            font-family: Mulish;
+            font-size: 14px;
+            color: #c7c7cc;
+        }
+    }
+}
+.size {
+    &__title {
+    }
+
+    &__row {
+    }
+
+    &__item {
+    }
+
+    &__radio {
+    }
+
+    &__mask {
+    }
+
+    &__select {
+    }
+}
+.color {
+    &__title {
+    }
+
+    &__row {
+    }
+
+    &__item {
+    }
+
+    &__radio {
+    }
+
+    &__mask {
+    }
+
+    &__select {
+    }
+}
+
+//===========================</SHOP>========================
+//===========================<FOOTER>========================
 .shop-footer {
     &__row {
         display: flex;
@@ -89,5 +185,5 @@
     &__icon {
     }
 }
-
+//===========================</FOOTER>========================
 //===========================</SHOP>========================
