@@ -98,9 +98,12 @@ body {
 //</ОСНОВНОЙ БЛОК>====================================================================================================
 //<BIGBOARD>====================================================================================================
 .bigboard {
-	max-width: 1366px;
 	height: 540px;
 	margin: 0 auto;
+
+	@media (min-width: 1360px) {
+		height: 100vh;
+	}
 	@media (max-width: $md3+px) {
 		height: 340px;
 	}
@@ -119,7 +122,9 @@ body {
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
-		margin-left: 95px;
+		@media (min-width: 1360px) {
+			width: 25%;
+		}
 		@media (max-width: $md3+px) {
 			margin-left: 20px;
 		}
@@ -130,16 +135,19 @@ body {
 
 	&__title {
 		font-family: "Playfair";
-		@include adaptiv-value("font-size", 48, 34, 1);
+		@include adaptiv-value("font-size", 48, 34, 0);
 		@include adaptiv-value("line-height", 64, 38, 1);
 		color: #ffffff;
 		margin-bottom: 16px;
 	}
 	&__text {
-		font-size: 16px;
+		@include adaptiv-value("font-size", 16, 16, 0);
 		line-height: 24px;
 		color: #ffffff;
 		margin-bottom: 24px;
+		@media (min-width: 1360px) {
+			font-size: 24px;
+		}
 	}
 
 	&__btn {
