@@ -9,7 +9,7 @@ funcSwitch.addEventListener('click', () => {
 })
 
 
-function handleTabletChange(e) {
+/* function handleTabletChange(e) {
     if (e.matches) {
         funcSwitch.style.display = 'none';
         funcWrap.classList.add('content__grid')
@@ -20,5 +20,27 @@ function handleTabletChange(e) {
     }
 }
 mediaQuery.addListener(handleTabletChange)
-handleTabletChange(mediaQuery)
+handleTabletChange(mediaQuery) */
 //=====================/ПЕРЕКЛЮЧЕНИЕ СЕТКА-СПИСОК=============
+//=====================/Перемещение элемента=============
+/* const contentBlock = document.querySelectorAll('.content__item');
+
+
+
+contentBlock.forEach(el => {
+    console.log(el.children);
+    for (let i = 0; i < el.children.length; i++) {
+        if (el.children[i].classList.contains('content__picture')) {
+            console.log(el.children[i + 1]);
+            children[i + 1].prepend(el.children[i]);
+        }
+
+    }
+    el.children.forEach(item => {
+        console.log(item);
+        if (item.classList.contains('content__picture')) {
+            console.log(item);
+        }
+    })
+}) */
+//=====================/Перемещение элемента=============

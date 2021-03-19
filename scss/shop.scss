@@ -6,13 +6,17 @@
 }
 .shop-header {
     &__top {
-        position: relative;
+        @media (min-width: $md2+px) {
+            position: relative;
+        }
     }
     &__menu {
-        display: inline-block;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        @media (min-width: $md2+px) {
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     }
     &__menu-link {
         font-size: 24px;
@@ -72,10 +76,11 @@
         width: 72px;
         height: 34px;
         background: url("../img/switched/grid.svg") center/ contain no-repeat;
-        margin: 0px 0px 5px 15px;
+        margin: 0px 0px 5px 0px;
         cursor: pointer;
         @media (max-width: $md1+px) {
             align-self: center;
+            margin: 0px 0px -7px 0px;
         }
         &_grid {
             background: url("../img/switched/list.svg") center/ contain no-repeat;
@@ -329,28 +334,9 @@
         @include adaptiv-value("line-height", 45, 25, 1);
         letter-spacing: 0.4px;
         color: #1b2437;
-        display: flex;
-        flex-direction: row;
         margin-bottom: 20px;
-        @media (max-width: 600px) {
-            flex-direction: column;
-            max-width: 363px;
-            margin: 0 auto 20px;
-        }
         &:last-child {
             margin-bottom: 0;
-        }
-    }
-
-    .collection__picture {
-        flex: 14%;
-        border-radius: 25px;
-        overflow: hidden;
-        @media (max-width: $md2+px) {
-            flex: 0 0 45%;
-        }
-        @media (max-width: $md3+px) {
-            flex: 0 0 50%;
         }
     }
 
@@ -358,19 +344,59 @@
     }
 
     .collection__block {
+        display: grid;
+        grid-template-columns: 0.5fr 1fr;
+        grid-template-areas:
+            "picture title"
+            "picture text"
+            "picture row";
+        grid-column-gap: 15px;
+        @media (max-width: $md2+px) {
+            grid-template-columns: 0.8fr 1fr;
+        }
+        @media (max-width: $md3+px) {
+            grid-gap: 10px;
+            grid-template-rows: 1fr auto auto;
+            grid-template-areas:
+                "picture title"
+                "text text"
+                "row row";
+        }
+    }
+    .content__picture {
+        grid-area: picture;
+        border-radius: 25px;
+        overflow: hidden;
+        @media (max-width: $md3+px) {
+            height: 200px;
+            width: 260px;
+        }
+        @media (max-width: $md4+px) {
+            height: 125px;
+            width: 160px;
+        }
+        @media (max-width: $md3+px) {
+            img {
+                height: 200px;
+                @media (max-width: $md4+px) {
+                    height: 125px;
+                }
+            }
+        }
     }
 
     .collection__title {
+        grid-area: title;
     }
 
     .collection__text {
+        grid-area: text;
     }
 
     .collection__row {
-        justify-content: flex-end;
-        @media (max-width: 600px) {
+        grid-area: row;
+        @media (max-width: $md3+px) {
             flex-direction: row;
-            justify-content: space-between;
         }
     }
 
@@ -400,58 +426,82 @@
         grid-gap: 10px;
         justify-items: center;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 690px) {
         grid-template-columns: repeat(1, 1fr);
+        max-width: 450px;
+        margin: 0 auto;
     }
+
     .content__item {
-        flex-direction: column;
-        height: 560px;
+        min-height: auto;
+        height: 100%;
+    }
+    .content__block {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 280px auto auto auto;
+        grid-template-areas: "picture" "title" "text" "row";
+        padding: 0;
+        grid-row-gap: 10px;
         @media (max-width: $md1+px) {
-            max-width: 300px;
-            height: 490px;
+            grid-template-rows: auto auto auto auto;
         }
         @media (max-width: $md2+px) {
-            max-width: 364px;
+            grid-template-columns: 1fr;
+            grid-template-areas: "picture" "title" "text" "row";
         }
         @media (max-width: $md3+px) {
-            max-width: 45vw;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto auto;
+            grid-template-areas: "picture" "title" "text" "row";
         }
-        @media (max-width: 600px) {
-            max-width: 360px;
-        }
-        @media (max-width: 384px) {
-            max-width: 305px;
-        }
+        /* @media (max-width: $md4+px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto auto auto;
+            grid-template-areas: "picture" "title" "text" "row";
+        } */
     }
-
-    .collection__picture {
-        flex: 0 0 48% !important;
+    .content__picture {
         border-radius: 25px 25px 0 0;
-    }
 
-    .collection__img {
-    }
-
-    .collection__block {
-        @media (max-width: $md1+px) {
-            flex: 0 0 50%;
-            padding: 10px;
+        @media (max-width: $md3+px) {
+            width: auto;
+            height: 100%;
+        }
+        @media (max-width: $md4+px) {
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            @media (max-width: $md1+px) {
+                width: 100%;
+            }
+            @media (max-width: $md3+px) {
+                width: 100%;
+                height: 100%;
+            }
+            @media (max-width: $md4+px) {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
-
-    .collection__title {
+    .content__title {
         margin-bottom: 0px;
+        padding: 0 32px;
         @media (max-width: $md1+px) {
             font-size: 24px;
             line-height: 28px;
         }
     }
 
-    .collection__text {
+    .content__text {
         margin-bottom: 0px;
+        padding: 0 32px;
     }
 
-    .collection__row {
+    .content__row {
+        padding: 0 32px 24px;
         justify-content: space-between;
         @media (max-width: $md1+px) {
             flex-direction: column;
@@ -476,6 +526,9 @@
     }
 
     .collection__btn {
+        @media (max-width: $md3+px) {
+            margin-top: 0;
+        }
     }
 }
 
