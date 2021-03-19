@@ -429,6 +429,9 @@ body {
 
 	&__main-title {
 		margin-bottom: 33px;
+		@media (max-width: $md3+px) {
+			margin-bottom: 10px;
+		}
 	}
 
 	&__wrap {
@@ -470,6 +473,12 @@ body {
 		position: absolute !important;
 		right: 0;
 		top: -65px;
+		@media (max-width: $md2+px) {
+			width: 100px !important;
+		}
+		@media (max-width: $md3+px) {
+			top: -35px;
+		}
 	}
 	&__dots {
 		width: 152px;
@@ -481,6 +490,9 @@ body {
 		justify-content: center;
 		align-items: center;
 		overflow: visible;
+		@media (max-width: $md2+px) {
+			display: none !important;
+		}
 		.owl-dot {
 			display: none !important;
 			background-color: transparent !important;
